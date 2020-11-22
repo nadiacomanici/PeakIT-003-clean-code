@@ -3,19 +3,28 @@ using System.IO;
 
 namespace PlayerStates_Demo.Logic
 {
+    public enum VideoState
+    {
+        NotInitialized = 0,
+        VideoLoaded = 1,
+        Playing = 2,
+        Pause = 3,
+        Stopped = 4
+    }
+
     public class VideoPlayer
     {
-        private int CurrentState = 0;
+        private VideoState CurrentState = VideoState.NotInitialized;
 
         public void TogglePlayPause()
         {
-            if (CurrentState == 1)
+            if (CurrentState == VideoState.VideoLoaded)
             {
                 Play();
             }
             else
             {
-                if (CurrentState == 2)
+                if (CurrentState == VideoState.Playing)
                 {
                     Pause();
                 }
@@ -29,13 +38,13 @@ namespace PlayerStates_Demo.Logic
         private void Play()
         {
             Console.WriteLine("Play");
-            CurrentState = 2;
+            CurrentState = VideoState.Playing;
         }
 
         private void Pause()
         {
             Console.WriteLine("Pause");
-            CurrentState = 3;
+            CurrentState = VideoState.Pause;
         }
 
         public void PlayVideo(string fileName)
@@ -43,7 +52,7 @@ namespace PlayerStates_Demo.Logic
             string fileExtension = Path.GetExtension(fileName);
 
             if ((fileExtension == ".mp4" || fileExtension == ".avi")
-                && (CurrentState != 2 || CurrentState == 3))
+                && (CurrentState != VideoState.Playing || CurrentState == VideoState.Pause))
             {
                 LoadVideo(fileName);
                 Play();
@@ -53,7 +62,7 @@ namespace PlayerStates_Demo.Logic
         private void LoadVideo(string fileName)
         {
             Console.WriteLine("Loading Video");
-            CurrentState = 1;
+            CurrentState = VideoState.VideoLoaded;
         }
     }
 }

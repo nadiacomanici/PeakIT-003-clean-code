@@ -5,6 +5,7 @@ namespace AvoidCodeDuplication_Demo
 {
     class Program
     {
+        // TODO: implement this
         static void Main(string[] args)
         {
             RegistrationBook registrationBook = new RegistrationBook();
