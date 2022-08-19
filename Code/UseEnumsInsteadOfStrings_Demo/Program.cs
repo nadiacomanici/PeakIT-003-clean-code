@@ -6,7 +6,7 @@ namespace UseEnumsInsteadOfStrings_Demo
     {
         static void Main(string[] args)
         {
-            User user = new User("nadia", "comanici", UserRole.Admin);
+            User user = new User("nadia", "comanici", "employee");
 
             DashboardPage page = new DashboardPage();
             page.LogUser(user);

@@ -19,7 +19,6 @@
             FirstName = firstName;
             LastName = lastName;
             Gender = gender;
-            // TODO: add something
         }
     }
 }

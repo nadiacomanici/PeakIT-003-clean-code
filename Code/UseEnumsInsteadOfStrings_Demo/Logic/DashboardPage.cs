@@ -2,38 +2,25 @@
 
 namespace UseEnumsInsteadOfStrings_Demo.Logic
 {
-    public enum UserRole
-    {
-        SuperAdmin,
-        Admin,
-        Employee,
-        Other
-    }
-
     public class DashboardPage
     {
         public void LogUser(User user)
         {
-            switch(user.Role)
+            if (user.Role == "manager")
             {
-                case UserRole.SuperAdmin:
-                    GiveSuperAdminRights();
-                    break;
-                case UserRole.Admin:
-                    GiveAdminRights();
-                    break;
-                case UserRole.Employee:
-                    GiveEditRights();
-                    break;
-                default:
-                    GiveReadOnlyRights();
-                    break;
+                GiveAdminRights();
             }
-        }
-
-        private void GiveSuperAdminRights()
-        {
-            throw new NotImplementedException();
+            else
+            {
+                if (user.Role == "employee")
+                {
+                    GiveEditRights();
+                }
+                else
+                {
+                    GiveReadOnlyRights();
+                }
+            }
         }
 
         private void GiveReadOnlyRights()

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace AvoidCodeDuplication_Demo.Logic
 {
@@ -20,29 +19,30 @@ namespace AvoidCodeDuplication_Demo.Logic
             persons.Add(person);
         }
 
-        private int CountByGender(Gender gender)
-        {
-            return persons.Where(p => p.Gender == gender).Count();
-
-            //int count = 0;
-            //foreach (var person in persons)
-            //{
-            //    if (person.Gender == gender)
-            //    {
-            //        count++;
-            //    }
-            //}
-            //return count;
-        }
-
         public int CountFemales()
         {
-            return CountByGender(Gender.Female);
+            int count = 0;
+            foreach (var person in persons)
+            {
+                if (person.Gender == Gender.Female)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         public int CountMales()
         {
-            return CountByGender(Gender.Male);
+            int count = 0;
+            foreach (var person in persons)
+            {
+                if (person.Gender == Gender.Male)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }

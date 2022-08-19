@@ -26,9 +26,9 @@ namespace MeaningfulNames_Begin
 
         static void Main(string[] args)
         {
-            Console.WriteLine(Compute(new List<int>()));
-            Console.WriteLine(Compute(new List<int> { 1, 2, 3, 4, 5 }));
-            Console.WriteLine(Compute(new List<int> { 10, -2, -13, 4, 9 }));
+            Console.WriteLine($"Average is: {Compute(new List<int>())}");
+            Console.WriteLine($"Average is: {Compute(new List<int> { 1, 2, 3, 4, 5 })}");
+            Console.WriteLine($"Average is: {Compute(new List<int> { 10, -2, -13, 4, 9 })}");
         }
     }
 }

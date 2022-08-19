@@ -33,9 +33,9 @@ namespace MeaningfulNames_End
 
         static void Main(string[] args)
         {
-            Console.WriteLine(ComputeAverage(new List<int>()));
-            Console.WriteLine(ComputeAverage(new List<int> { 1, 2, 3, 4, 5 }));
-            Console.WriteLine(ComputeAverage(new List<int> { 10, -2, -13, 4, 9 }));
+            Console.WriteLine($"Average is: {ComputeAverage(new List<int>())}");
+            Console.WriteLine($"Average is: {ComputeAverage(new List<int> { 1, 2, 3, 4, 5 })}");
+            Console.WriteLine($"Average is: {ComputeAverage(new List<int> { 10, -2, -13, 4, 9 })}");
         }
     }
 }
